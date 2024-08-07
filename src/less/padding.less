@@ -1,0 +1,20 @@
+@import "vars";
+.setPadding(@count) when (@count <= length(@padding)){
+  @selectSizePadding:extract(@padding, @count);
+  @selectPadding:e(%(".w3-padding-%s", @selectSizePadding));
+  @{selectPadding}{
+    padding-top: e(%("%spx", @selectSizePadding));
+    padding-bottom: e(%("%spx", @selectSizePadding));
+  }
+  .setPadding(@count + 1);
+}
+.setPadding(1);
+.setPaddingSize(@No) when (@No <= length(@PaddingListSize)){
+  @selectPaddingSize:e(extract(@PaddingListSize, @No));
+  @selPadSize:e(%(".w3-padding%s", @selectPaddingSize));
+  @{selPadSize}{
+    padding: (@No * @PadBaseSize) (2 * @No * @PadBaseSize);
+  }
+  .setPaddingSize(@No + 1);
+}
+.setPaddingSize(1);

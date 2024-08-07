@@ -1,0 +1,36 @@
+@import "vars";
+.w3-card{
+  &-4{
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
+  }
+  &, &-2{
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  }
+}
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
+  display: block;
+}
+.w3{
+  &-padding{
+    padding: @paddingBase (2*@paddingBase)!important;
+  }
+  &-circle{
+    border-radius: 50%;
+  }
+  &-block{
+    display: block;
+    width: 100%;
+  }
+  &-tooltip, &-display-container{
+    position: relative;
+  }
+}
+.setMargin(@num) when (@num <= length(@marginDirList)){
+  @selectDirMargin:e(extract(@marginDirList, @num));
+  @selMargin:e(%(".w3-margin-%s", @selectDirMargin));
+  @{selMargin}{
+    margin-@{selectDirMargin}:@marginBase;
+  }
+  .setMargin(@num + 1);
+}
+.setMargin(1);

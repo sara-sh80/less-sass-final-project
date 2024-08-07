@@ -1,0 +1,53 @@
+@import "vars";
+.setBgColor(@No) when (@No <= length(@alert-color-name)){
+  @selectColorName:extract(@alert-color-name, @No);
+  @selectColorCode:e(extract(@alert-color-code, @No));
+  @selectBg:e(%(".w3-%s", @selectColorName));
+  @selColorBgHover:e(%(".w3-hover-%s:hover", @selectColorName));
+  @selBorderColor:e(%(".w3-border-%s", @selectColorName));
+  @selBorderColorHover:e(%(".w3-hover-border-%s:hover", @selectColorName));
+  @selTextColor:e(%(".w3-text-%s", @selectColorName));
+  @selTextColorHover:e(%(".w3-hover-text-%s:hover", @selectColorName));
+  @{selectBg}{
+    .setColor();
+  }
+  @{selectBg}, @{selColorBgHover}{
+    background-color: @selectColorCode;
+  }
+  @{selBorderColor}, @{selBorderColorHover}{
+    border-color: @selectColorCode;
+  }
+  @{selTextColor}, @{selTextColorHover}{
+    color: @selectColorCode;
+  }
+  .setBgColor(@No + 1);
+}
+.setColor() when ((@selectColorName = "red") or (@selectColorName = "green")
+or (@selectColorName = "blue") or (@selectColorName = "pink") or (@selectColorName = "deep-orange")
+or (@selectColorName = "blue-gray") or (@selectColorName = "black") or (@selectColorName = "dark-gray")){
+  color: #fff;
+}
+.setColor() when ((@selectColorName = "pale-red") or (@selectColorName = "pale-green") or
+(@selectColorName = "pale-yellow") or (@selectColorName = "yellow")
+or (@selectColorName = "pale-blue") or (@selectColorName = "orange") or (@selectColorName = "amber")
+or (@selectColorName = "light-gray") or (@selectColorName = "grey") or (@selectColorName = "white")){
+  color: #000;
+}
+.setBgColor(1);
+
+.w3-panel{
+  margin-top: @m-p;
+  margin-bottom: @m-p;
+  &:extend(.w3-container);
+}
+.w3-container{
+  padding: 0.01em @m-p;
+}
+.setBorderRadius(@count) when (@count <= length(@round-width)){
+  @SelectBorderRadius:e(%(".w3-%s", extract(@round-width, @count)));
+  @{SelectBorderRadius}{
+    border-radius: @base-width-border * pow(2, @count);
+  }
+  .setBorderRadius(@count + 1);
+}
+.setBorderRadius(1);

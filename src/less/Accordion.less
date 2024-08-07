@@ -1,0 +1,99 @@
+.w3-show{
+  &, &-block{
+    display: block!important;
+  }
+}
+1, 2, 3, 4, 5, 6{
+  h&{
+    font-family: "Segoe UI",Arial,sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+    display: block;
+  }
+}
+p {
+  margin-top: @marginBaseTopAndBottom;
+  margin-bottom: @marginBaseTopAndBottom;
+  font-size: @fontSizeBaseP;
+  display: block;
+}
+.w3{
+  &-hide{
+    display: none!important;
+  }
+  &-table{
+    &-all{
+      border: 1px solid #ccc;
+      & tr:nth-child(odd){
+        background-color: #fff;
+      }
+      & tr:nth-child(even){
+        background-color: #f1f1f1;
+      }
+    }
+    &, &-all{
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      display: table;
+    }
+  }
+  &-btn{
+    box-shadow: none;
+  }
+}
+b, strong{
+  font-weight: bolder;
+}
+table{
+  text-indent: initial;
+}
+.w3, .ws{
+  table&-table-all{
+    margin: 20px 0;
+  }
+}
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+th{
+  font-weight: bold;
+}
+bordered, table-all{
+  .w3-&{
+    tr{
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
+th, td{
+  .w3-table &:first-child, .w3-table-all &:first-child{
+    padding-left: @m-p;
+  }
+  .w3-table &, .w3-table-all &{
+    padding: @paddingBase @paddingBase;
+    display: table-cell;
+    text-align: left;
+    vertical-align: top;
+  }
+}
+.testmargin {
+  margin-left: 20px;
+}
+hr{
+  margin: 20px -16px;
+  border: 0;
+  border-top: 1px solid #eee;
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+
